@@ -7,20 +7,13 @@
 </head>
 <body>
     <h1>Listas de Compras</h1>
+    <br>
+    <button onclick="window.location.href='novalista.php' ">Nova Lista</button>
+    <br>
     <?php
-        //variáveis Banco de Dados
-        $db_servidor = "localhost";
-        $db_name = "listadecompras";
-        $db_user = "root";
-        $db_senha = "";
+        //Abrir aquivo conexão Banco de Dados
+        require_once("conexao.php");
 
-        try {
-            $conn = new PDO("mysql:host=$db_servidor;dbname=$db_name",$db_user,$db_senha);
-            $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            echo "Conexão bem sucedida";
-        } catch (PDOException $e) {
-            echo "Erro ao conectar banco de dados: ".$e->getMessage();
-        }
         //Prepera o comando SQL para Executar
         $stmt = $conn->prepare("SELECT * FROM lista");
         $stmt->execute(); //Executa o SQL
@@ -28,7 +21,7 @@
         //Repete para cada linha da tabela Lista
         foreach ($stmt as $lista) { 
             echo "<li>";
-            echo "<a href='item.php?lista='".$lista["codigo"].">".$lista["codigo"]."</a>";
+            echo "<a href='item.php?lista=".$lista["codigo"]."'>".$lista["codigo"]."</a>";
             echo " - ".$lista["nome"];
             echo "</li>";
         }
