@@ -14,6 +14,7 @@
             $parametro = ['nome' => $_POST['inome']];
             $stmt = $conn->prepare("INSERT INTO lista (nome) VALUES (:nome)");
             if ($stmt->execute($parametro)) {
+                //se inclusão bem sucedida redireciona para a listagem de listas
                 header("Location:index.php");    
             } 
         } catch (PDOException $e) {
