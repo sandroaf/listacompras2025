@@ -3,16 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
     <title>Lista de compras - <?=$_GET['lista']?></title>
-    <style>
-
-        .inf {
-            color:darkblue;
-        }
-        .inf:hover {
-            color:blue;
-        }
-    </style>
 </head>
 <body>
     <h1>Lista de compras - <?=$_GET['lista']?></h1>
@@ -32,7 +24,7 @@
             echo $item["descricao"]." - ";
             echo $item["quantidade"];
             $dh = strtotime($item["datahora"]);
-            echo "&nbsp;<span class='inf' title='Código: ".$item["codigo"]."\nData e Hora: ".date("d/m/Y H:i:s",$dh)."'>(&iexcl;)</span>";
+            echo "&nbsp;<span class='inf' title='Código: ".$item["codigo"]."\nData e Hora: ".date("d/m/Y H:i:s",$dh)."'>&nbsp;!&nbsp;</span>";
             echo "</li>"; 
        }
        echo "</ul>"; 

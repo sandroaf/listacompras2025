@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
-    <title>Incluir Lista</title>
+    <title>Altera Lista</title>
 </head>
 <body>
     <?php
@@ -12,14 +12,15 @@
         require_once("conexao.php");
 
         try {
-            $parametro = ['nome' => $_POST['inome']];
-            $stmt = $conn->prepare("INSERT INTO lista (nome) VALUES (:nome)");
-            if ($stmt->execute($parametro)) {
+            $parametros = ['codigo' => $_POST['icodigo']
+                         ,'nome' => $_POST['inome']];
+            $stmt = $conn->prepare("UPDATE lista SET nome = :nome WHERE codigo = :codigo");
+            if ($stmt->execute($parametros)) {
                 //se inclusão bem sucedida redireciona para a listagem de listas
                 header("Location:index.php");    
             } 
         } catch (PDOException $e) {
-            echo "Erro ao incluir Lista: ".$e->getMessage();
+            echo "Erro ao alterar Lista: ".$e->getMessage();
         }
     ?> 
 </body>

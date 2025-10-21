@@ -1,0 +1,52 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+    width: fit-content;
+}
+
+li a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+    width: auto;
+}
+
+li:hover .dados {
+    background-color: lightgray;
+}
+
+li img {
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+.inf {
+    font-weight: bolder;
+    color:darkblue;
+}
+.inf:hover {
+    color:blue;
+}
+
+.acao {
+    cursor: pointer;
+}
+
+
+.acao img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    background-color: white;
+}
+
+.acao img:hover {
+    width: 18px;
+    height: 18px;
+}
